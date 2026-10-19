@@ -6,7 +6,7 @@ include_once __DIR__ . '/../../includes/header.php';
 <h2>Tambah Data Kasir</h2>
 <br>
 
-<form action="" method="post">
+<form action="/indomaret098/process/cashiers_process.php" method="post">
     <div style="margin-bottom: 12px;">
         <label for="nama_kasir" style="display: block; margin-bottom: 5px; font-weight: bold;">Nama Kasir:</label>
         <input type="text" name="nama_kasir" id="nama_kasir" placeholder="Masukkan Nama Kasir" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
