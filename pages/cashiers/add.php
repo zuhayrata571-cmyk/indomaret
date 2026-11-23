@@ -1,31 +1,80 @@
 <?php
-// Gunakan __DIR__ agar path selalu tepat dan tidak bergantung pada konfigurasi DOCUMENT_ROOT server
-include_once __DIR__ . '/../../includes/header.php';
+include '../../includes/header.php';
 ?>
 
-<h2>Tambah Data Kasir</h2>
-<br>
+<style>
+    .page-title {
+        margin-bottom: 20px;
+    }
 
-<form action="/indomaret098/process/cashiers_process.php" method="post">
-    <div style="margin-bottom: 12px;">
-        <label for="nama_kasir" style="display: block; margin-bottom: 5px; font-weight: bold;">Nama Kasir:</label>
-        <input type="text" name="nama_kasir" id="nama_kasir" placeholder="Masukkan Nama Kasir" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 7px;
+        font-weight: bold;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        color: white;
+        font-size: 14px;
+    }
+
+    .btn-save {
+        background: #005baa;
+    }
+
+    .btn-back {
+        background: #777;
+    }
+</style>
+
+<h2 class="page-title">Tambah Kasir</h2>
+
+<form action="../../process/cashiers_process.php" method="POST">
+
+    <input type="hidden" name="action" value="add">
+
+    <div class="form-group">
+        <label>Nama Kasir</label>
+        <input type="text" name="nama_kasir" maxlength="100"
+        placeholder="Masukkan nama kasir" required>
     </div>
 
-    <div style="margin-bottom: 12px;">
-        <label for="no_telp" style="display: block; margin-bottom: 5px; font-weight: bold;">No. Telepon:</label>
-        <input type="text" name="no_telp" id="no_telp" placeholder="Masukkan No. Telp" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+    <div class="form-group">
+        <label>Nomor Telepon</label>
+        <input type="text" name="no_telp" maxlength="20"
+        placeholder="Masukkan nomor telepon" required>
     </div>
 
-    <div style="margin-bottom: 15px;">
-        <label for="alamat" style="display: block; margin-bottom: 5px; font-weight: bold;">Alamat:</label>
-        <textarea name="alamat" id="alamat" placeholder="Masukkan Alamat" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; resize: vertical;" rows="3"></textarea>
+    <div class="form-group">
+        <label>Alamat</label>
+        <textarea name="alamat" rows="4"
+        placeholder="Masukkan alamat kasir" required></textarea>
     </div>
 
-    <button type="submit" name="submit" style="background-color: #005baa; color: white; padding: 10px 18px; border: none; border-radius: 4px; cursor: pointer; font-size: 14px;">Simpan Kasir</button>
-    <a href="<?= $base_url; ?>/pages/cashiers/list.php" style="margin-left: 10px; color: #666; text-decoration: none;">Kembali</a>
+    <button type="submit" class="btn btn-save">Simpan</button>
+
+    <a href="list.php" class="btn btn-back">Kembali</a>
+
 </form>
 
-<?php
-include_once __DIR__ . '/../../includes/footer.php';
-?>
+<?php include '../../includes/footer.php'; ?>

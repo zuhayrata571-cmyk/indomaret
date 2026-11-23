@@ -1,11 +1,12 @@
+
 <?php
 
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "indomaret_rpl4";
+$db_host = "localhost";
+$db_user = "root";
+$db_pass = "";
+$db_name = "indomaret_rpl4";
 
-$conn = mysqli_connect($host, $user, $password, $database)
-or die("could not connect to the database: ". mysqli_connect_error());
+$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name)
+    or die("Could not connect to database: " . mysqli_connect_error());
 
-var_dump($conn);
+?>
